@@ -79,7 +79,14 @@
             </a-assets>
             
            
-            
+            <a-entity event-listener id="whale-model"  
+            animation-mixer = "clip: Swimming;" 
+            gltf-model="#whale" 
+            scale=".01 .01 .01" 
+            position = "0 -40 -10" 
+            rotation="0 0 0" 
+          >
+          </a-entity>
             <!-- Video Marker -->
 
             <a-marker id="marker1" type='pattern' url='markers/baby-pattern-marker.patt' video-vidhandler>
@@ -100,7 +107,7 @@
                 gltf-model="#whale" 
                 scale=".01 .01 .01" 
                 position = "0 -40 -10" 
-                rotation="-0 0 0" 
+                rotation="0 0 0" 
               >
               </a-entity>
 
