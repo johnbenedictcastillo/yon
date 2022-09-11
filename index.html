@@ -98,7 +98,21 @@
 		    });
 		}
 	    });
-			
+		window.onload = function() {
+            setInterval(function() {
+            
+            var whale = document.querySelector('#whale-model')
+              console.log(whale.object3D.position.x)
+            if (whale.object3D.position.x >= 10){
+              whale.object3D.position.x = -10
+            }else{
+            whale.object3D.position.x +=1
+              
+            }
+            
+            
+          }, 1000);
+        }
             
         </script>
     </head>
@@ -144,7 +158,7 @@
                 <a-entity event-listener id="whale-model"  
                 animation-mixer = "clip: Swimming;" 
                 gltf-model="#whale" 
-                scale=".007 .007 .007" 
+                scale=".008 .008 .008" 
                 position = "0 1 -10" 
                 rotation="-15 80 -7" 
               >
