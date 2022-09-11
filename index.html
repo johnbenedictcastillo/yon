@@ -37,67 +37,6 @@
                 }
             });
 
-            // Count down Timer and Countdown Timer Component
-
-            AFRAME.registerComponent('clock-text', {
-                init: function() {
-		    console.log('Timer init entered');
-                    var el = this.el;
-                    this.ready = false;
-		    el.addEventListener('textfontset', function() {
-    	            	this.ready = true;
-		    }.bind(this));
-                },
-                tick: function() {
-  	        	var el = this.el;
-                    if (!this.ready) {
-    	                return;
-                    }
-
-                    var endTime = new Date("September 17, 2022 11:00:00").getTime();
-                    var timeRem;
-
-                    var timer = setInterval(function() {
-                        var currTime = new Date().getTime();
-
-                        var diff = endTime - currTime;
-
-                        if(diff > 0) {
-                            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                            var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                            var secs = Math.floor((diff % (1000 * 60)) / 1000);
-                            //console.log(days, hours, mins, secs);
-                            var timeRem = days + " days " + hours + " hrs " + mins + " mins " + secs + " secs ";
-                            //console.log(timeRem);
-                        } else {
-                            var timeRem = "Finally! The day has come.";
-                        }
-                        el.setAttribute('value', timeRem);
-                    }, 1000);
-                    
-                }
-            });
-		
-		
-	    // Mappoint component
-		
-	    AFRAME.registerComponent('mappoint-handler', {
-            
-		init: function() {
-		    //console.log("I was triggered");
-		    const marker3 = document.querySelector("#marker3");
-		    const imgMap = document.querySelector("#img-map");
-			
-		    marker3.addEventListener('click', function(ev, target) {
-		        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-			if (imgMap && intersectedElement === imgMap) {
-			    console.log("Clicked");
-			    document.location.href = "https://goo.gl/maps/KKedQFwMtG9sEY29A";
-			}
-		    });
-		}
-	    });
 		window.onload = function() {
             setInterval(function() {
             
@@ -122,6 +61,7 @@
             <a-assets>
 
                 <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
+                <a-asset-item id="map" response-type="arraybuffer" src="assets/map.glb"></a-asset-item>
                 <!-- Save the Date  Video -->
                 
                 <video preload="none" id="save-the-date" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
@@ -170,9 +110,13 @@
             <!-- Map Location Marker -->
 
             <a-marker id="marker3" type='pattern' url='markers/map-pattern-marker.patt' emitevents="true" cursor="rayOrigin: mouse" mappoint-handler>
-                <!--<a-box position='0 0 0' material='color: red;'></a-box>-->
-                <a-plane id="img-map" scale = "2 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#map-point'></a-plane>
-                <!--<a-entity text="font: https://cdn.aframe.io/fonts/mozillavr.fnt; value: Fun Moments"></a-entity>-->
+                <a-entity event-listener id="map-model"  
+                gltf-model="#map" 
+                scale="1 1 1" 
+                position = "0 0 0" 
+                rotation="-0 0 0" 
+              >
+              </a-entity>
             </a-marker>     
             
             
