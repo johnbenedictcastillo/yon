@@ -50,6 +50,7 @@
                     this.fishes1 = document.querySelector("#fishes-model");
                     this.fishes2 = document.querySelector("#fishes-model2");
                     this.fishes3 = document.querySelector("#fishes-model3");
+                    this.turtle = document.querySelector("#turtle-model");
                 },
                 tick: function() {
                     if (this.el.object3D.visible == true) {
@@ -60,6 +61,7 @@
                             this.fishes1.setAttribute("visible",true);
                             this.fishes2.setAttribute("visible",true);
                             this.fishes3.setAttribute("visible",true);
+                            this.turtle.setAttribute("visible",true);
                             //this.vid.play();
                         }
                     } else {
@@ -69,6 +71,7 @@
                         this.fishes1.setAttribute("visible",false);
                         this.fishes2.setAttribute("visible",false);
                         this.fishes3.setAttribute("visible",false);
+                        this.turtle.setAttribute("visible",false);
                         //this.vid.pause();
                     }
                 }
@@ -83,6 +86,7 @@
 
                 <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
                 <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
+                <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb"></a-asset-item>
                 <!-- Save the Date  Video -->
                 
                 <video preload="none" id="save-the-date" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
@@ -97,6 +101,17 @@
             
            
             <!--Sea Creatures -->
+
+            <a-entity  id="turtle-model"  
+            animation="property: position; to: -15 1 -4; dur: 30000; easing: linear; loop: true"
+            animation-mixer="clip:Action"
+            gltf-model="#turtle" 
+            scale="1 1 1" 
+            position = "15 -2 -1" 
+            rotation="0 -90 -10" 
+          >
+          </a-entity>
+
             <a-entity  id="fishes-model"  
             animation="property: position; to: 15 4 -8; dur: 15000; easing: linear; loop: true"
             animation-mixer="clip:Take 01"
