@@ -92,9 +92,9 @@
             animation="property: position; to: 30 -1 -8; dur: 25000; easing: linear; loop: true"
             animation-mixer = "clip:Swimming;" 
             gltf-model="#whale" 
-            scale=".01 .01 .01" 
+            scale=".009 .009 .009" 
             position = "-30 -1 -10" 
-            rotation="-15 80 -7" 
+            rotation="0 80 -7" 
           >
           </a-entity>
             <a-entity event-listener id="whale-model2"
@@ -102,9 +102,9 @@
             animation="property: position; to: -30 3 -10; dur: 25000; easing: linear; loop: true; delay:15000"
             animation-mixer = "clip:Swimming;" 
             gltf-model="#whale"  
-            scale=".01 .01 .01" 
+            scale=".009 .009 .009" 
             position = "30 3 4" 
-            rotation="-15 -80 -7" 
+            rotation="0 -80 -7" 
           >
           </a-entity>
             <!-- Video Marker -->
@@ -124,9 +124,7 @@
             <!-- Map Location Marker -->
 
             <a-marker id="marker3" type='pattern' url='markers/map-pattern-marker.patt'>
-                <a-entity>
-                <a-image src="#map"></a-image>
-                </a-entity>
+                <a-plane scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#map'></a-plane>
             </a-marker>     
             
             
