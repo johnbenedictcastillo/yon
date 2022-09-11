@@ -47,6 +47,9 @@
                     this.toggle = false;
                     this.whale1 = document.querySelector("#whale-model");
                     this.whale2 = document.querySelector("#whale-model2");
+                    this.fishes1 = document.querySelector("#fishes-model");
+                    this.fishes2 = document.querySelector("#fishes-model2");
+                    this.fishes3 = document.querySelector("#fishes-model3");
                 },
                 tick: function() {
                     if (this.el.object3D.visible == true) {
@@ -54,12 +57,18 @@
                             this.toggle = true;
                             this.whale1.setAttribute("visible",true);
                             this.whale2.setAttribute("visible",true);
+                            this.fishes1.setAttribute("visible",true);
+                            this.fishes2.setAttribute("visible",true);
+                            this.fishes3.setAttribute("visible",true);
                             //this.vid.play();
                         }
                     } else {
                         this.toggle = false;
                         this.whale1.setAttribute("visible",false);
                         this.whale2.setAttribute("visible",false);
+                        this.fishes1.setAttribute("visible",false);
+                        this.fishes2.setAttribute("visible",false);
+                        this.fishes3.setAttribute("visible",false);
                         //this.vid.pause();
                     }
                 }
@@ -73,6 +82,7 @@
             <a-assets>
 
                 <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
+                <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
                 <!-- Save the Date  Video -->
                 
                 <video preload="none" id="save-the-date" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
@@ -87,6 +97,35 @@
             
            
             <!--Sea Creatures -->
+            <a-entity  id="fishes-model"  
+            animation="property: position; to: 15 4 -8; dur: 15000; easing: linear; loop: true"
+            animation-mixer="clip:Take 01"
+            gltf-model="#fishes" 
+            scale=".5 .5 .5" 
+            position = "-15 -6 -4" 
+            rotation="-0 -80 -7" 
+          >
+          </a-entity>
+      
+      
+            <a-entity  id="fishes-model2"  
+            animation-mixer="clip:Take 01"
+            gltf-model="#fishes" 
+            scale=".3 .3 .3" 
+            position = "2 -2 -4" 
+            rotation="-0 -80 -7" 
+          >
+          </a-entity>
+      
+            <a-entity  id="fishes-model3"  
+            animation-mixer="clip:Take 01"
+            gltf-model="#fishes" 
+            scale=".3 .3 .3" 
+            position = "-2 -2 -3" 
+            rotation="-0 80 -7" 
+          >
+
+          </a-entity>
             <a-entity event-listener id="whale-model"
             visible="false"  
             animation="property: position; to: 30 -1 -8; dur: 25000; easing: linear; loop: true"
