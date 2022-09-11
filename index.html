@@ -40,22 +40,6 @@
                 }
             });
 
-		window.onload = function() {
-            setInterval(function() {
-            
-            var whale = document.querySelector('#whale-model')
-              console.log(whale.object3D.position.x)
-            if (whale.object3D.position.x >= 10){
-              whale.object3D.position.x = -10
-            }else{
-            whale.object3D.position.x +=1
-              
-            }
-            
-            
-          }, 1000);
-        }
-            
         </script>
     </head>
     <body>
@@ -72,7 +56,7 @@
 
                 <!-- Map point Image -->
 
-                <img id="map" src="images.jpg">     
+                <img id="map" src="images.png">     
                 
             </a-assets>
             
