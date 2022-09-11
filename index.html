@@ -14,7 +14,7 @@
 
 
         <script>
-                       
+
             // Save the date Video Handler
             
             AFRAME.registerComponent('video-vidhandler', {
@@ -107,7 +107,7 @@
             
             <a-assets>
 
-                
+                <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
                 <!-- Save the Date  Video -->
                 
                 <video preload="none" id="save-the-date" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
@@ -141,9 +141,14 @@
                 <!--<a-plane scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#save-the-date' controls></a-plane>-->
                 <!--<a-entity text="font: https://cdn.aframe.io/fonts/mozillavr.fnt; value: Fun Moments"></a-entity>-->
 
-                <a-plane scale="2 1" position="0 0.1 0" rotation="-90 0 0" src="#texture">
-                    <a-text id="timer" clock-text value="00:00:00:00" width="1.5" height="1" position="-0.451 0.041 0.000" color="#FFFFFF"></a-text>
-                </a-plane>
+                <a-entity event-listener id="whale-model"  
+                animation-mixer = "clip: Swimming; loop: once;"
+                gltf-model="#whale" 
+                scale=".5 .5 .5" 
+                position = "0 0 -5" 
+                rotation="0 0 0" 
+              >
+              </a-entity>
 
                 
             </a-marker>
