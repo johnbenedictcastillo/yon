@@ -52,6 +52,7 @@
                     this.fishes2 = document.querySelector("#fishes-model2");
                     this.nemo = document.querySelector("#nemo-model");
                     this.turtle = document.querySelector("#turtle-model");
+                    this.megalodon = document.querySelector("#megalodon-model");
                 },
                 tick: function() {
                     if (this.el.object3D.visible == true) {
@@ -63,6 +64,7 @@
                             this.fishes2.setAttribute("visible",true);
                             this.nemo.setAttribute("visible",true);
                             this.turtle.setAttribute("visible",true);
+                            this.megalodon.setAttribute("visible",true);
                             this.ambience.play();
                             //this.vid.play();
                         }
@@ -74,6 +76,7 @@
                         this.fishes2.setAttribute("visible",false);
                         this.nemo.setAttribute("visible",false);
                         this.turtle.setAttribute("visible",false);
+                        this.megalodon.setAttribute("visible",true);
                         this.ambience.pause();
                         //this.vid.pause();
                     }
@@ -92,6 +95,7 @@
                 <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
                 <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb"></a-asset-item>
                 <a-asset-item id="nemo" response-type="arraybuffer" src="assets/nemo.glb"></a-asset-item>
+                <a-asset-item id="megalodon" response-type="arraybuffer" src="assets/megalodon.glb"></a-asset-item>
                 <audio id="ambience" src="audios/underwater-ambience.mp3"></audio>
                 <!-- growing-up  Video -->
                 
@@ -117,6 +121,16 @@
             rotation="0 -90 -10" 
           >
           </a-entity>
+
+          <a-entity  id="megalodon-model"    
+          animation="property: position; to: 0 0.5 10; dur: 30000; easing: linear; loop: true"
+          gltf-model="#megalodon" 
+          animation-mixer="clip:Swim"
+          scale="0.5 0.5 0.5" 
+          position = "0 -5 -70" 
+          rotation="0 0 0" 
+        >
+        </a-entity>
 
             <a-entity  id="fishes-model"  
             animation="property: position; to: 15 4 -8; dur: 25000; easing: linear; loop: true"
