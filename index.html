@@ -50,7 +50,7 @@
                     this.whale2 = document.querySelector("#whale-model2");
                     this.fishes1 = document.querySelector("#fishes-model");
                     this.fishes2 = document.querySelector("#fishes-model2");
-                    this.fishes3 = document.querySelector("#fishes-model3");
+                    this.nemo = document.querySelector("#nemo-model");
                     this.turtle = document.querySelector("#turtle-model");
                 },
                 tick: function() {
@@ -61,7 +61,7 @@
                             this.whale2.setAttribute("visible",true);
                             this.fishes1.setAttribute("visible",true);
                             this.fishes2.setAttribute("visible",true);
-                            this.fishes3.setAttribute("visible",true);
+                            this.nemo.setAttribute("visible",true);
                             this.turtle.setAttribute("visible",true);
                             this.ambience.play();
                             //this.vid.play();
@@ -72,7 +72,7 @@
                         this.whale2.setAttribute("visible",false);
                         this.fishes1.setAttribute("visible",false);
                         this.fishes2.setAttribute("visible",false);
-                        this.fishes3.setAttribute("visible",false);
+                        this.nemo.setAttribute("visible",false);
                         this.turtle.setAttribute("visible",false);
                         this.ambience.pause();
                         //this.vid.pause();
@@ -91,6 +91,7 @@
                 <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
                 <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
                 <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb"></a-asset-item>
+                <a-asset-item id="nemo" response-type="arraybuffer" src="assets/nemo.glb"></a-asset-item>
                 <audio id="ambience" src="audios/underwater-ambience.mp3"></audio>
                 <!-- growing-up  Video -->
                 
@@ -108,7 +109,7 @@
             <!--Sea Creatures -->
 
             <a-entity  id="turtle-model"  
-            animation="property: position; to: -15 1 -4; dur: 30000; easing: linear; loop: true"
+            animation="property: position; to: -15 1 -4; dur: 50000; easing: linear; loop: true"
             animation-mixer="clip:Action"
             gltf-model="#turtle" 
             scale="1 1 1" 
@@ -118,7 +119,7 @@
           </a-entity>
 
             <a-entity  id="fishes-model"  
-            animation="property: position; to: 15 4 -8; dur: 15000; easing: linear; loop: true"
+            animation="property: position; to: 15 4 -8; dur: 25000; easing: linear; loop: true"
             animation-mixer="clip:Take 01"
             gltf-model="#fishes" 
             scale=".5 .5 .5" 
@@ -128,27 +129,28 @@
           </a-entity>
       
       
-            <a-entity  id="fishes-model2"  
-            animation-mixer="clip:Take 01"
-            gltf-model="#fishes" 
-            scale=".3 .3 .3" 
-            position = "2 0 -4" 
-            rotation="-0 -80 -7" 
-          >
-          </a-entity>
-      
-            <a-entity  id="fishes-model3"  
-            animation-mixer="clip:Take 01"
-            gltf-model="#fishes" 
-            scale=".3 .3 .3" 
-            position = "-2 0 -3" 
-            rotation="-0 80 -7" 
-          >
+          <a-entity  id="nemo-model"  
+          animation-mixer="clip:Animation"
+          gltf-model="#nemo" 
+          scale=".3 .3 .3" 
+          position = "-0.25 -1 -3"
+          rotation="-0 -80 -7" 
+        >
+        </a-entity>
+    
+          <a-entity  id="fishes-model2"  
+          animation-mixer="clip:Take 01"
+          gltf-model="#fishes" 
+          scale=".3 .3 .3" 
+          position = "0.25 -1 -3" 
+          rotation="-0 80 -7" 
+        >
+        </a-entity>
 
           </a-entity>
             <a-entity event-listener id="whale-model"
             visible="false"  
-            animation="property: position; to: 30 -1 -8; dur: 25000; easing: linear; loop: true"
+            animation="property: position; to: 30 -1 -8; dur: 35000; easing: linear; loop: true"
             animation-mixer = "clip:Swimming;" 
             gltf-model="#whale" 
             scale=".009 .009 .009" 
@@ -158,7 +160,7 @@
           </a-entity>
             <a-entity event-listener id="whale-model2"
             visible="false"  
-            animation="property: position; to: -30 -5 -10; dur: 25000; easing: linear; loop: true; delay:15000"
+            animation="property: position; to: -30 -5 -10; dur: 35000; easing: linear; loop: true; delay:15000"
             animation-mixer = "clip:Swimming;" 
             gltf-model="#whale"  
             scale=".009 .009 .009" 
