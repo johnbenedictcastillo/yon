@@ -18,13 +18,13 @@
 
         <script>
 
-            // Save the date Video Handler
+            // growing-up Video Handler
             
             AFRAME.registerComponent('video-vidhandler', {
                 init: function() {
 		    console.log('video init entered');
                     this.toggle = false;
-                    this.vid = document.querySelector("#save-the-date");
+                    this.vid = document.querySelector("#growing-up");
                     this.vid.pause();
                 },
                 tick: function() {
@@ -87,10 +87,10 @@
                 <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
                 <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
                 <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb"></a-asset-item>
-                <!-- Save the Date  Video -->
+                <!-- growing-up  Video -->
                 
-                <video preload="none" id="save-the-date" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
-                    <source  src="videos/save-the-date.m4v">
+                <video preload="none" id="growing-up" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
+                    <source  src="videos/growing-up.mp4">
                 </video>
 
                 <!-- Map point Image -->
@@ -165,7 +165,7 @@
 
             <a-marker id="marker1" type='pattern' url='markers/baby-pattern-marker.patt' video-vidhandler>
                 <!--<a-box position='0 0 0' material='color: red;'></a-box>-->
-                <a-plane scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#save-the-date' controls></a-plane>
+                <a-plane scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
                 <!--<a-entity text="font: https://cdn.aframe.io/fonts/mozillavr.fnt; value: Fun Moments"></a-entity>-->
             </a-marker>
 
