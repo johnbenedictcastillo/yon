@@ -45,6 +45,7 @@
                 init: function() {
 		    
                     this.toggle = false;
+                    this.ambience = document.querySelector("#ambience");
                     this.whale1 = document.querySelector("#whale-model");
                     this.whale2 = document.querySelector("#whale-model2");
                     this.fishes1 = document.querySelector("#fishes-model");
@@ -62,6 +63,7 @@
                             this.fishes2.setAttribute("visible",true);
                             this.fishes3.setAttribute("visible",true);
                             this.turtle.setAttribute("visible",true);
+                            this.ambience.play();
                             //this.vid.play();
                         }
                     } else {
@@ -72,6 +74,7 @@
                         this.fishes2.setAttribute("visible",false);
                         this.fishes3.setAttribute("visible",false);
                         this.turtle.setAttribute("visible",false);
+                        this.ambience.pause();
                         //this.vid.pause();
                     }
                 }
@@ -88,6 +91,7 @@
                 <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
                 <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
                 <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb"></a-asset-item>
+                <audio id="ambience" src="audios/underwater-ambience.mp3"></audio>
                 <!-- growing-up  Video -->
                 
                 <video preload="none" id="growing-up" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
@@ -99,7 +103,7 @@
                 <img id="map" src="images/map.png">     
                 
             </a-assets>
-            
+            <a-sound src="#ambience" autoplay="false" loop="true"></a-sound>
            
             <!--Sea Creatures -->
 
