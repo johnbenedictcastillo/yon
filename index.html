@@ -25,17 +25,40 @@
 		    console.log('video init entered');
                     this.toggle = false;
                     this.vid = document.querySelector("#growing-up");
+                    this.ambience = document.querySelector("#ambience");
+                    this.whale1 = document.querySelector("#whale-model");
+                    this.whale2 = document.querySelector("#whale-model2");
+                    this.fishes1 = document.querySelector("#fishes-model");
+                    this.fishes2 = document.querySelector("#fishes-model2");
+                    this.nemo = document.querySelector("#nemo-model");
+                    this.turtle = document.querySelector("#turtle-model");
+                    this.megalodon = document.querySelector("#megalodon-model");
+                    this.mapPlane = document.querySelector("#map-plane");
+                    this.videoPlane = document.querySelector("#video-plane");
+                    this.vid = document.querySelector("#growing-up");
                     this.vid.pause();
                 },
                 tick: function() {
                     if (this.el.object3D.visible == true) {
                         if (!this.toggle) {
                             this.toggle = true;
+                            this.videoPlane.setAttribute("visible",false);
                             this.vid.play();
+
+                            //Hide all others
+                            this.whale1.setAttribute("visible",false);
+                            this.whale2.setAttribute("visible",false);
+                            this.fishes1.setAttribute("visible",false);
+                            this.fishes2.setAttribute("visible",false);
+                            this.nemo.setAttribute("visible",false);
+                            this.turtle.setAttribute("visible",false);
+                            this.megalodon.setAttribute("visible",false);
+                            this.mapPlane.setAttribute("visible",false);
+                            this.ambience.pause(); 
                         }
                     } else {
                         this.toggle = false;
-                        this.vid.pause();
+                        //this.vid.pause();
                     }
                 }
             });
@@ -53,6 +76,10 @@
                     this.nemo = document.querySelector("#nemo-model");
                     this.turtle = document.querySelector("#turtle-model");
                     this.megalodon = document.querySelector("#megalodon-model");
+                    this.mapPlane = document.querySelector("#map-plane");
+                    this.videoPlane = document.querySelector("#video-plane");
+                    this.vid = document.querySelector("#growing-up");
+                    this.vid.pause();
                 },
                 tick: function() {
                     if (this.el.object3D.visible == true) {
@@ -66,19 +93,55 @@
                             this.turtle.setAttribute("visible",true);
                             this.megalodon.setAttribute("visible",true);
                             this.ambience.play();
-                            //this.vid.play();
+                            
+                            //Hide all others
+                            this.videoPlane.setAttribute("visible",false);
+                            this.mapPlane.setAttribute("visible",false);
+                            this.vid.pause();
                         }
                     } else {
                         this.toggle = false;
-                        this.whale1.setAttribute("visible",false);
-                        this.whale2.setAttribute("visible",false);
-                        this.fishes1.setAttribute("visible",false);
-                        this.fishes2.setAttribute("visible",false);
-                        this.nemo.setAttribute("visible",false);
-                        this.turtle.setAttribute("visible",false);
-                        this.megalodon.setAttribute("visible",false);
-                        this.ambience.pause();
-                        //this.vid.pause();
+                    }
+                }
+            });
+
+            AFRAME.registerComponent('map-handler', {
+                init: function() {
+		    
+                    this.toggle = false;
+                    this.ambience = document.querySelector("#ambience");
+                    this.whale1 = document.querySelector("#whale-model");
+                    this.whale2 = document.querySelector("#whale-model2");
+                    this.fishes1 = document.querySelector("#fishes-model");
+                    this.fishes2 = document.querySelector("#fishes-model2");
+                    this.nemo = document.querySelector("#nemo-model");
+                    this.turtle = document.querySelector("#turtle-model");
+                    this.megalodon = document.querySelector("#megalodon-model");
+                    this.mapPlane = document.querySelector("#map-plane");
+                    this.videoPlane = document.querySelector("#video-plane");
+                    this.vid = document.querySelector("#growing-up");
+                    this.vid.pause();
+                },
+                tick: function() {
+                    if (this.el.object3D.visible == true) {
+                        if (!this.toggle) {
+                            this.toggle = true;
+                            this.mapPlane.setAttribute("visible",true);
+                            
+                            //Hide all others
+                            this.whale1.setAttribute("visible",false);
+                            this.whale2.setAttribute("visible",false);
+                            this.fishes1.setAttribute("visible",false);
+                            this.fishes2.setAttribute("visible",false);
+                            this.nemo.setAttribute("visible",false);
+                            this.turtle.setAttribute("visible",false);
+                            this.megalodon.setAttribute("visible",false);
+                            this.videoPlane.setAttribute("visible",false);
+                            this.ambience.pause(); 
+                            this.vid.pause();
+                        }
+                    } else {
+                        this.toggle = false;
                     }
                 }
             });
@@ -182,24 +245,24 @@
             rotation="0 -80 -7" 
           >
           </a-entity>
+          
+          <a-plane id="video-plane" scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
+          <a-plane id="map-plane" scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#map'></a-plane>
             <!-- Video Marker -->
 
             <a-marker id="marker1" type='pattern' url='markers/baby-pattern-marker.patt' video-vidhandler>
                 <!--<a-box position='0 0 0' material='color: red;'></a-box>-->
-                <a-plane scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
                 <!--<a-entity text="font: https://cdn.aframe.io/fonts/mozillavr.fnt; value: Fun Moments"></a-entity>-->
             </a-marker>
 
             <!-- Whale Marker -->
-
             <a-marker id="marker2" type='pattern' url='markers/whale-pattern-marker.patt' model-handler>
 
             </a-marker>
 
             <!-- Map Location Marker -->
 
-            <a-marker id="marker3" type='pattern' url='markers/map-pattern-marker.patt'>
-                <a-plane scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#map'></a-plane>
+            <a-marker id="marker3" type='pattern' url='markers/map-pattern-marker.patt' map-handler>
             </a-marker>     
             
             
