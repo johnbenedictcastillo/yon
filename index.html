@@ -158,21 +158,21 @@
             
             <a-assets>
 
-                <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb"></a-asset-item>
-                <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb"></a-asset-item>
-                <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb"></a-asset-item>
-                <a-asset-item id="nemo" response-type="arraybuffer" src="assets/nemo.glb"></a-asset-item>
-                <a-asset-item id="megalodon" response-type="arraybuffer" src="assets/megalodon.glb"></a-asset-item>
+                <a-asset-item id="whale" response-type="arraybuffer" src="assets/blue_whale.glb" timeout="10000"></a-asset-item>
+                <a-asset-item id="fishes" response-type="arraybuffer" src="assets/fishes.glb" timeout="10000"></a-asset-item>
+                <a-asset-item id="turtle" response-type="arraybuffer" src="assets/turtle.glb" timeout="10000"></a-asset-item>
+                <a-asset-item id="nemo" response-type="arraybuffer" src="assets/nemo.glb" timeout="10000"></a-asset-item>
+                <a-asset-item id="megalodon" response-type="arraybuffer" src="assets/megalodon.glb" timeout="10000"></a-asset-item>
                 <audio id="ambience" src="audios/underwater-ambience.mp3"></audio>
                 <!-- growing-up  Video -->
                 
-                <video id="growing-up" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
+                <video id="growing-up" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls timeout="30000">
                     <source  src="https://www.googleapis.com/drive/v3/files/1Imfy6AMiSP0DGgVQW7138LLgiGc5zC0d?alt=media&key=AIzaSyBOPXy0Tgn2tNRjq-HGkAbQaIs1PDRDvuM">
                 </video>
 
                 <!-- Map point Image -->
 
-                <img id="map" src="images/map.png">     
+                <img id="map" src="images/map.png" timeout="10000">     
                 
             </a-assets>
             <a-sound src="#ambience" autoplay="false" loop="true"></a-sound>
