@@ -22,7 +22,6 @@
             
             AFRAME.registerComponent('video-vidhandler', {
                 init: function() {
-		    console.log('video init entered');
                     this.toggle = false;
                     this.vid = document.querySelector("#growing-up");
                     this.ambience = document.querySelector("#ambience");
@@ -42,8 +41,6 @@
                     if (this.el.object3D.visible == true) {
                         if (!this.toggle) {
                             this.toggle = true;
-                            this.videoPlane.setAttribute("visible",true);
-                            this.vid.play();
 
                             //Hide all others
                             this.whale1.setAttribute("visible",false);
@@ -55,6 +52,10 @@
                             this.megalodon.setAttribute("visible",false);
                             this.mapPlane.setAttribute("visible",false);
                             this.ambience.pause(); 
+
+                            //Show Video
+                            this.videoPlane.setAttribute("visible",true);
+                            this.vid.play();
                         }
                     } else {
                         this.toggle = false;
@@ -85,6 +86,13 @@
                     if (this.el.object3D.visible == true) {
                         if (!this.toggle) {
                             this.toggle = true;
+                            
+                            //Hide all others
+                            this.videoPlane.setAttribute("visible",false);
+                            this.mapPlane.setAttribute("visible",false);
+                            this.vid.pause();
+
+                            //Show 3d Models
                             this.whale1.setAttribute("visible",true);
                             this.whale2.setAttribute("visible",true);
                             this.fishes1.setAttribute("visible",true);
@@ -93,11 +101,6 @@
                             this.turtle.setAttribute("visible",true);
                             this.megalodon.setAttribute("visible",true);
                             this.ambience.play();
-                            
-                            //Hide all others
-                            this.videoPlane.setAttribute("visible",false);
-                            this.mapPlane.setAttribute("visible",false);
-                            this.vid.pause();
                         }
                     } else {
                         this.toggle = false;
@@ -126,8 +129,6 @@
                     if (this.el.object3D.visible == true) {
                         if (!this.toggle) {
                             this.toggle = true;
-                            this.mapPlane.setAttribute("visible",true);
-                            
                             //Hide all others
                             this.whale1.setAttribute("visible",false);
                             this.whale2.setAttribute("visible",false);
@@ -139,6 +140,9 @@
                             this.videoPlane.setAttribute("visible",false);
                             this.ambience.pause(); 
                             this.vid.pause();
+
+                            //Show Map
+                            this.mapPlane.setAttribute("visible",true);
                         }
                     } else {
                         this.toggle = false;
@@ -251,7 +255,7 @@
           >
           </a-entity>
           
-          <a-plane visible="false"  id="video-plane" scale = "1 1 1" position='0 0.1 -1' rotation="0 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
+          <a-plane visible="false"  id="video-plane" scale = "0.8 0.8 0.8" position='0 0.1 -1' rotation="0 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
           <a-plane visible="false" id="map-plane" scale = "0.7 0.7 0.7" position='0 -0.2 -1' rotation="0 0 0" material='transparent:true;src:#map'></a-plane>
             <!-- Video Marker -->
 
