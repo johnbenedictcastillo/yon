@@ -176,6 +176,7 @@
             <!--Sea Creatures -->
 
             <a-entity  id="turtle-model"  
+            visible="false"  
             animation="property: position; to: -15 1 -4; dur: 50000; easing: linear; loop: true"
             animation-mixer="clip:Action"
             gltf-model="#turtle" 
@@ -185,7 +186,8 @@
           >
           </a-entity>
 
-          <a-entity  id="megalodon-model"    
+          <a-entity  id="megalodon-model"   
+          visible="false"   
           animation="property: position; to: 0 0.5 10; dur: 30000; easing: linear; loop: true"
           gltf-model="#megalodon" 
           animation-mixer="clip:Swim"
@@ -196,6 +198,7 @@
         </a-entity>
 
             <a-entity  id="fishes-model"  
+            visible="false"  
             animation="property: position; to: 15 4 -8; dur: 25000; easing: linear; loop: true"
             animation-mixer="clip:Take 01"
             gltf-model="#fishes" 
@@ -207,6 +210,7 @@
       
       
           <a-entity  id="nemo-model"  
+          visible="false"  
           animation-mixer="clip:Animation"
           gltf-model="#nemo" 
           scale=".3 .3 .3" 
@@ -216,6 +220,7 @@
         </a-entity>
     
           <a-entity  id="fishes-model2"  
+          visible="false"  
           animation-mixer="clip:Take 01"
           gltf-model="#fishes" 
           scale=".3 .3 .3" 
@@ -246,8 +251,8 @@
           >
           </a-entity>
           
-          <a-plane id="video-plane" scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
-          <a-plane id="map-plane" scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#map'></a-plane>
+          <a-plane visible="false"  id="video-plane" scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#growing-up' controls></a-plane>
+          <a-plane visible="false" id="map-plane" scale = "4 2" position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#map'></a-plane>
             <!-- Video Marker -->
 
             <a-marker id="marker1" type='pattern' url='markers/baby-pattern-marker.patt' video-vidhandler>
